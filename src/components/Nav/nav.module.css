@@ -1,0 +1,17 @@
+.navBar{
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 1em;
+    margin-bottom: 6em;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2em 0;
+    width: 80%;
+    background-color: rgb(90,140,28);
+}
+.navBar:hover{
+    background-color: rgb(192,223,64,0.9);
+    border-color: rgb(57,255,20);
+}

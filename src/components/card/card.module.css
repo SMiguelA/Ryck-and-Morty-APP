@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+.contPadre{
+    display: flex;
+    flex-direction: row;
+    transition: 0.25s;
+}
+
+.contPadre .container:hover ~ img{
+    display: block;
+    transition: 0.25s;
+}
+
+.container{
+    border: 2px solid black;
+    border-radius: 2em;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    background-color:rgb(200,251,148,0.8);
+    margin-left: auto;
+    margin-right: auto;
+    width: 50em;
+    height: 11em;
+    margin-bottom: 2em;
+    backdrop-filter: blur(2px);
+}
+
+.imagen{
+    border: 3px solid;
+    border-radius: 10em;
+    width: 11em;
+    margin-left: 1em;
+    margin-bottom: 0;
+}
+
+.contItems{
+    font-family: 'Shadows Into Light', cursive;
+    flex-direction: column;
+}
+
+.items{
+    border: 1px solid grey;
+    border-radius: 10em;
+    margin-bottom: 1px;
+    margin-top: 15px;
+    width: 20em;
+    background-color: rgb(177, 212, 142);
+}
+
+.cerrar{
+    margin-right: 1em;
+    margin-top: 1em;
+    height: 2em;
+    width: 2em;
+    border-radius: 10px;
+    border: 1px solid grey;
+    background-color: rgb(177, 212, 142);
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 1em;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+.cerrar:hover{
+    cursor: pointer;
+    background-color: rgb(61, 74, 48);
+    color:white;
+    transform: rotate(-20deg);
+    transition: 0.40s;
+}
+
+.iconoHover{
+    width: 13em;
+    height: 13em;
+    position: absolute;
+    display: none;
+}
