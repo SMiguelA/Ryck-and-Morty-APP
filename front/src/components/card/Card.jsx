@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 const Card = (props) => {
    const [isFav, setFav] = useState(false);
@@ -17,19 +18,27 @@ const Card = (props) => {
          props.removeFavorite(props.id);
       }else if (isFav === false){
          setFav(true);
-         props.addFavorite(props);
+         let {id, name, species, gender, image} = props;
+         props.addFavorite({id, name, species, gender, image});
       };
    };
 
-   const myFavorites = useSelector((state) => state.myFavorites);
+   const [myFavorites, setFavorites] = useState([]);
 
    useEffect(() => {
-      myFavorites.forEach((fav) => {
-         if(fav.id === props.id){
-            setFav(true);
-         }
-      });
-   }, [props.myFavorites]);
+      async function favorites(){
+         const response = await axios.get("http://localhost:3001/rickandmorty/fav")
+         setFavorites(response.data)
+         response.data.forEach((fav) => {
+            console.log(fav);
+            if(fav.id == props.id){
+               setFav(true);
+            }
+         });
+      }
+      favorites();
+
+   }, []);
 
    // * Esto es lo mismo que arriba pero sin forEach, es un reto de la homework
    // useEffect(() => {

@@ -2,13 +2,13 @@ import Card from '../card/Card';
 
 export default function Cards(props) {
    const { characters, onClose } = props;
-   // console.log(characters)
+   console.log(characters)
    // ! VAriable que hiso el profe
 
    return( 
       <div>
          {
-         characters.map((personaje)=>{
+         characters?.map((personaje)=>{
             return(
                // ! Mi codigo principal
                // <Card 
@@ -19,6 +19,7 @@ export default function Cards(props) {
                // />
                // ! Correccion del profe
                <Card 
+                  key={personaje.id}
                   id={personaje.id}
                   name={personaje.name} 
                   species={personaje.species} 

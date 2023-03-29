@@ -7,13 +7,13 @@ import Detail from './components/views/Details/Detail'
 import Form from './components/Form/form'
 import {Routes, Route, useLocation, useNavigate} from 'react-router-dom'
 import Favorites from './components/favorites/Favorites';
+import axios from "axios";
 
 function App () {
   const [personajes, setState] = useState([]);
   const Search = (id) => {
-    const URL = 'https://be-a-rym.up.railway.app/api';
-    const KEY = '81db1b443752.8a163dc08d2f030c3eab';
-    fetch(`${URL}/character/${id}?key=${KEY}`)
+    const URL = 'http://localhost:3001/rickandmorty';
+    fetch(`${URL}/onsearch/${id}`)
     .then((response)=>response.json())
     .then((infoPersonaje) => {
       if(infoPersonaje.id && !personajes.find((char) => char.id === infoPersonaje.id)){

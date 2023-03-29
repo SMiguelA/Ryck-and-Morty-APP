@@ -9,9 +9,8 @@ const Detail = () => {
     const [character, setCharacter] = useState({})
     
     useEffect(() => {
-        const URL = 'https://be-a-rym.up.railway.app/api';
-        const KEY = '81db1b443752.8a163dc08d2f030c3eab';
-        fetch(`${URL}/character/${detailId}?key=${KEY}`)
+        const URL = 'http://localhost:3001/detail/';
+        fetch(`${URL}${detailId}`)
         .then((response) => response.json())
         .then((infoCharacter) => {
             setCharacter(infoCharacter);

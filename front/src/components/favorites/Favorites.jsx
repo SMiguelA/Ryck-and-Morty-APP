@@ -2,10 +2,20 @@ import { connect } from "react-redux";
 import style from "./favorites.module.css"
 import img from "../card/toxicRick.png"
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const Favoritos = (props) => {
-    console.log(props);
-    const myFavorites = props.myFavorites;
+    const [myFavorites, setFavorites] = useState([]);
+
+    useEffect(() => {
+        async function favorites(){
+            const response = await axios.get("http://localhost:3001/rickandmorty/fav")
+            setFavorites(response.data)
+        }
+        favorites();
+    }, [])
+    console.log(myFavorites);
     return(
         <>
             {
